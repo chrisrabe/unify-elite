@@ -1,0 +1,33 @@
+{
+  "name": "typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "Typescript NodeJS boilerplate for quick TS prototypes",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "npm run build && node build/index.js",
+    "serve": "node build/index.js",
+    "build": "rimraf ./build && tsc"
+  },
+  "keywords": [
+    "NodeJS",
+    "Typescript",
+    "Boilerplate"
+  ],
+  "author": "Chris Rabe",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "eslint": "^8.5.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
