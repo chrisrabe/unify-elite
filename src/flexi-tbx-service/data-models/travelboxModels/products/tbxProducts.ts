@@ -12,8 +12,7 @@ export enum ProductCode {
   transfer = 'TRS',
   hotel = 'HTL',
   generic = 'GEN',
-  car = 'CAR',
-  tailormade = 'TMD',
+  car = 'CAR'
 }
 
 export interface TBXProduct {
