@@ -1,18 +1,26 @@
+import {
+  TBXKeyValuePair,
+  TravelDates,
+  TravelDuration,
+  PackageRate,
+} from './tbxGeneral';
+import { TBXProduct } from './products';
+
 export interface TravelboxPackage {
   productCode: string;
   productKey: string;
   summary: Summary;
   detail: Detail;
   metaInfo: MetaInfo;
-  products: any; // @todo revisit
+  products: TBXProduct[]; // @todo revisit
   ancillaryProducts: any[];
   additionalPackageInfo: AdditionalPackageInfo[];
   rate: PackageRate;
   content: Content;
-  reservationProperties: PackageAttribute[];
+  reservationProperties: TBXKeyValuePair[];
   fees: any[];
   taxes: any[];
-  attributes: PackageAttribute[];
+  attributes: TBXKeyValuePair[];
   links: Link[];
 }
 
@@ -20,65 +28,10 @@ export interface Link {
   rel: string;
   href: string;
 }
-export interface PackageAttribute {
-  name: string;
-  value: string;
-}
 
 export interface Content {
   description: string;
   contentItems: any[];
-}
-
-export interface PackageRate {
-  discount: number;
-  price: number;
-  priceWithTax: number;
-  tax: number;
-  commission: number;
-  commissionPercentage: number;
-  additionalRateInfo: AdditionalRateInfo;
-  travellerRateBreakdown: TravellerRateBreakdown[];
-  priceWithoutCommission: number;
-  itemSuppliemntPrice: number; // the typo is intentional
-  amendmentCharge: number;
-  cancellationCharge: number;
-  cnxPrice: number;
-  sellingToBaseExchangeRate: number;
-  basePrice: number;
-  manualCommission: boolean;
-  itemDiscount: number;
-  totalItemFeeBase: number;
-  totalItemFee: number;
-  totalTaxBase: number;
-  totalTax: number;
-  totalNettBookingTax: number;
-}
-
-export interface TravellerRateBreakdown {
-  travellerNo: number;
-  servicePaxType: string;
-  price: number;
-  tax: number;
-  priceWithTax: number;
-  cost: number;
-}
-
-export interface AdditionalRateInfo {
-  grossAdult: number;
-  grossChild: number;
-  grossInfant: number;
-  nettAdult: number;
-  nettChild: number;
-  nettInfant: number;
-  adultPerPerson: number;
-  childPerPerson: number;
-  infantPerPerson: number;
-  ecPrice: number;
-  lcPrice: number;
-  extraNightPrice: number;
-  nonCommissionablePrice: number;
-  averagePerPersonPrice: number;
 }
 
 export interface AdditionalRate {
@@ -135,16 +88,6 @@ export interface Summary {
   discount: number;
   priceBeforeDiscount: number;
   vipBooking: boolean;
-}
-
-export interface TravelDates {
-  startDate: string;
-  endDate?: string;
-}
-
-export interface TravelDuration {
-  duration: number;
-  durationType: string;
 }
 
 export interface Detail {
