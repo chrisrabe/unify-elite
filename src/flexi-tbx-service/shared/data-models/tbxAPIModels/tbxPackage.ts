@@ -12,7 +12,7 @@ export interface TravelboxPackage {
   summary: Summary;
   detail: Detail;
   metaInfo: MetaInfo;
-  products: TBXProduct[]; // @todo revisit
+  products: TBXProduct[];
   ancillaryProducts: any[];
   additionalPackageInfo: AdditionalPackageInfo[];
   rate: PackageRate;

@@ -6,14 +6,7 @@ import {
 } from '../tbxGeneral';
 import { ProductDetails } from './details';
 import { ProductSource } from './source';
-
-export enum ProductCode {
-  flight = 'FLT',
-  transfer = 'TRS',
-  hotel = 'HTL',
-  generic = 'GEN',
-  car = 'CAR'
-}
+import { ProductCode } from '../../shared';
 
 export interface TBXProduct {
   productCode: ProductCode;

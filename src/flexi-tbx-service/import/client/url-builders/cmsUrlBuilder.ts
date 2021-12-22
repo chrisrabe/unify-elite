@@ -8,7 +8,7 @@ export class TravelboxCMSUrlBuilder {
   }
 
   withStartTime(startTime: number): TravelboxCMSUrlBuilder {
-    this.queryParams.push('s=' + startTime);
+    this.queryParams.push('s=' + startTime);``
     return this;
   }
 

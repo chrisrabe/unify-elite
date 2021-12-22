@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import { fetchTravelboxData } from './client';
+import { fetchTravelboxData } from './flexi-tbx-service/import/client';
 import fs from 'fs';
 import { detailedDiff } from 'deep-object-diff';
 import { TravelBoxPackageData } from './data-models/TravelboxPackageData';
@@ -33,28 +33,8 @@ const importElitePackages = async () => {
     }
   }
 
-  const analysisElitePkg = analysePackage(elitePkgs);
-
   // write JSON output to each file
-  fs.writeFile('elite-analysis.json', JSON.stringify(analysisElitePkg), () => ({}));
-};
-
-const analysePackage = (packages: TravelBoxPackageData[]) => {
-  const pkgResults: Record<string, any> = {};
-  for (let i = 0; i < packages.length; i++) {
-    const pkg = packages[i];
-    const results: Record<string, any> = {};
-    for (let j = 0; j < packages.length; j++) {
-      if (i === j) {
-        continue;
-      }
-      const otherPkg = packages[j];
-      results[`${pkg.detail.pkgCode}-${otherPkg.detail.pkgCode}`] =
-        detailedDiff(pkg, otherPkg);
-    }
-    pkgResults[pkg.detail.pkgCode] = results;
-  }
-  return pkgResults;
+  fs.writeFile('elite.json', JSON.stringify(elitePkgs), () => ({}));
 };
 
 importElitePackages().then();
