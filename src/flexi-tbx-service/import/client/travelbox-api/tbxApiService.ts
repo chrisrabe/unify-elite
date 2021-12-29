@@ -1,15 +1,15 @@
 'use strict';
-import { TravelBoxPackageData } from 'data-models/TravelboxPackageData';
 import * as superagent from 'superagent';
 import { TravelboxAPIUrlBuilder } from '../url-builders/tbxUrlBuilder';
 import { constants } from 'config/constants';
 import { v4 as uuidv4 } from 'uuid';
+import { TravelboxPackage } from '../../../shared/data-models/tbxAPIModels';
 
 export const fetchTravelboxData = async (
   travelboxUrl: string,
   travelboxSubscriptionKey: string,
   startYear: string
-): Promise<TravelBoxPackageData[]> => {
+): Promise<TravelboxPackage[]> => {
   const fetchDataUrl = new TravelboxAPIUrlBuilder(travelboxUrl, startYear)
     .withPax('2')
     .build();
@@ -41,10 +41,10 @@ export const fetchTravelboxData = async (
 };
 
 export const fetchSubItineraries = async (
-  tbxPackage: TravelBoxPackageData,
+  tbxPackage: TravelboxPackage,
   travelboxUrl: string,
   travelboxSubscriptionKey: string
-): Promise<TravelBoxPackageData[]> => {
+): Promise<TravelboxPackage[]> => {
   const alternativeLink = tbxPackage.links.find(
     (link) => link.rel === 'alternative'
   );
